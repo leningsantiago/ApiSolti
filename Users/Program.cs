@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Users.Data;
 using Users.Models;
+using Users.Services;
+using Users.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var sqlConnection = builder.Configuration.GetConnectionString("SQLConnection");
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -26,7 +29,12 @@ builder.Services.Configure<IdentityOptions>(options =>
         options.User.RequireUniqueEmail = true;
     }
 );
+builder.Services.AddDbContext<UserDbContext>(config =>
+{
+    config.UseSqlServer(sqlConnection);
+});
 
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

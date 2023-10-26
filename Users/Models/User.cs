@@ -13,10 +13,8 @@ public class User : IdentityUser
     [Required]
     public int DNI { get; set; }
 
-    [Timestamp]
-    public DateTime CreatedUser { get; set; }
-    [Timestamp]
-    public DateTime UpdateUser { get; set; }
+    public DateTime? CreatedUser { get; set; } 
+    public DateTime? UpdateUser { get; set; }
     public bool IsActive { get; set; } = true;
 
 
