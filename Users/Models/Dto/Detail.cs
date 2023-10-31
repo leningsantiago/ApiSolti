@@ -9,7 +9,7 @@ public class Detail
     public ResponseStatus Status { get; set; }
     public bool IsSuccessful { get; set; }
     public string Message { get; set; }
-    public string? token { get; set; }
+    public string? Token { get; set; }
     public UserDto? User { get; set; }
     public List<string>? Errors { get; set; }
 }
