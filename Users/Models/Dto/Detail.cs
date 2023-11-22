@@ -7,11 +7,29 @@ public class Detail
 {
     [JsonIgnore]
     public ResponseStatus Status { get; set; }
+
+    /// <summary>
+    /// Get or send status.
+    /// </summary>
+    /// <example>true</example>
     public bool IsSuccessful { get; set; }
+    /// <summary>
+    /// Get or send message.
+    /// </summary>
+    /// <example>Usuario Creado sastifactoriamente</example>
     public string Message { get; set; }
+    /// <summary>
+    /// Get or send token authentication.
+    /// </summary>
+    /// <example>e3e07f10-8be2-4c28-9cb1-205b6c9a799f</example>
     public string? Token { get; set; }
+    /// <summary>
+    /// Get or send User.
+    /// </summary>
+    /// <example>Null</example>
     public UserDto? User { get; set; }
     public List<string>? Errors { get; set; }
+    public List<UserDto>? Users { get; set; }
 }
 public class UserDto
 {
@@ -19,7 +37,7 @@ public class UserDto
     /// Get or send UserId.
     /// </summary>
     /// <example>f8c1b26b-c23f-4788-962b-6158e06e6426</example>
-    public string UserId { get; set; }
+    public string Id { get; set; }
     /// <summary>
     /// Get or send first name.
     /// </summary>
