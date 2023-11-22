@@ -23,7 +23,7 @@ public class RegisterDto
     /// <summary>
     /// Get or send email.
     /// </summary>
-    /// <example>juan.perez@email.com</example>
+    /// <example>juan.perez@aliadascargo.com.co</example>
     [Required]
     [MaxLength(50, ErrorMessage = "The maximum length of the email is 50 characters.")]
     [EmailAddress(ErrorMessage = "Please provide a valid email address.")]
@@ -41,7 +41,7 @@ public class RegisterDto
     /// <summary>
     /// Get or send first name.
     /// </summary>
-    /// <example>Juan</example>
+    /// <example>123456789</example>
     [Required]
     [RegularExpression(@"^\d{7,10}$",
          ErrorMessage = "Only numeric max digits 10 ")]

@@ -13,10 +13,8 @@ using Users.Services.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 var sqlConnection = builder.Configuration.GetConnectionString("SQLConnection");
 var configuration = builder.Configuration;
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -59,6 +57,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 builder.Services.AddIdentity<User, IdentityRole>()
@@ -103,6 +102,7 @@ builder.Services
             ValidateIssuerSigningKey = true
         };
     });
+
 builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<IUserService, UserService>();
